@@ -8,7 +8,6 @@ target/
 *.iws
 *.iml
 *.ipr
-
 # Package Files #
 *.jar
 *.war
