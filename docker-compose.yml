@@ -1,0 +1,6 @@
+version: "3.3"
+services:
+  employeeManagement:
+    image: employee-management:latest
+    ports:
+      - "8080:8080"
