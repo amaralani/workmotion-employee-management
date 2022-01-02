@@ -1,5 +1,7 @@
 # Employee Management
 
+[![CircleCI](https://img.shields.io/circleci/build/github/amaralani/workmotion-employee-management)](https://circleci.com/gh/amaralani/workmotion-employee-management)
+
 This codebase is my implementation of [WorkMotion Senior Challenge](https://github.com/workmotion/backend-challenge/blob/main/SENIOR_CHALLENGE.md).
 
 ### Specifications
