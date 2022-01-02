@@ -26,7 +26,7 @@ public class EmployeeStatusUpdateRequestToEmployeeConverter implements Converter
 		if (Objects.isNull(currentEmployee)) {
 			throw new InvalidEmployeeIdException("Invalid employee id");
 		} else {
-			EmployeeState newState = EmployeeStateProvider.getByStatus(source.getState());
+			EmployeeState newState = EmployeeStateProvider.getByStatus(source.getStatus());
 			if (newState instanceof ExtendedEmployeeState) {
 				ExtendedEmployeeState employeeState = (ExtendedEmployeeState) newState;
 				EmployeeState oldEmployeeState = currentEmployee.getEmployeeState();

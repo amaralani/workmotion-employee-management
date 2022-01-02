@@ -115,7 +115,7 @@ public class EmployeeApiTest {
 		String id = UUID.randomUUID().toString();
 		EmployeeStatusUpdateRequest employeeStatusUpdateRequest = new EmployeeStatusUpdateRequest();
 		employeeStatusUpdateRequest.setId(id);
-		employeeStatusUpdateRequest.setState(Status.IN_CHECK);
+		employeeStatusUpdateRequest.setStatus(Status.IN_CHECK);
 
 		Employee employee = TestUtil.createEmployee(1, Status.ADDED);
 		employee.setId(id);
@@ -136,7 +136,7 @@ public class EmployeeApiTest {
 		String id = UUID.randomUUID().toString();
 		EmployeeStatusUpdateRequest employeeStatusUpdateRequest = new EmployeeStatusUpdateRequest();
 		employeeStatusUpdateRequest.setId(id);
-		employeeStatusUpdateRequest.setState(Status.IN_CHECK);
+		employeeStatusUpdateRequest.setStatus(Status.IN_CHECK);
 
 		Employee employee = TestUtil.createEmployee(1, Status.ADDED);
 		employee.setId(id);
@@ -156,7 +156,7 @@ public class EmployeeApiTest {
 	public void updateEmployeeInvalidEmployeeShouldReturnBadRequest() throws Exception {
 		EmployeeStatusUpdateRequest employeeStatusUpdateRequest = new EmployeeStatusUpdateRequest();
 		employeeStatusUpdateRequest.setId(UUID.randomUUID().toString());
-		employeeStatusUpdateRequest.setState(Status.IN_CHECK);
+		employeeStatusUpdateRequest.setStatus(Status.IN_CHECK);
 
 		String errorMessage = "Invalid employee id";
 		Mockito.doThrow(new InvalidEmployeeIdException(errorMessage)).when(mockEmployeeService).updateEmployee(Mockito.any());

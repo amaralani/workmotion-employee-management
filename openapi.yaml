@@ -1,0 +1,133 @@
+openapi: "3.0.3"
+info:
+  title: "Employee Management"
+  description: "API definition for employee management "
+  version: 1.0.0
+
+paths:
+  /employee:
+    get:
+      summary: "Get a list of all employeed"
+      operationId: "getEmployees"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EmployeeResponse'
+    put:
+      summary: "Update Employee State"
+      operationId: "updateEmployee"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmployeeStatusUpdateRequest'
+      responses:
+        "400":
+          description: "There is a problem with the request"
+        "202":
+          description: "State change is accepted"
+    post:
+      summary: "Create an employee"
+      operationId: "createEmployee"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NewEmployeeRequest"
+
+      responses:
+        "201":
+          description: "Employee created successfully"
+  /employee/{id}:
+    get:
+      summary: "Get an employee by ID"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmployeeResponse'
+        "404":
+          description: "No employees found with this id"
+components:
+  schemas:
+    NewEmployeeRequest:
+      type: object
+      required:
+        - username
+        - name
+      properties:
+        username:
+          type: string
+        name:
+          type: string
+    EmployeeStatusUpdateRequest:
+      type: object
+      required:
+        - id
+        - state
+      properties:
+        id:
+          type: string
+        state:
+          type: string
+          enum:
+            - ADDED
+            - IN_CHECK
+            - APPROVED
+            - ACTIVE
+        work_permit_status:
+          type: string
+          enum:
+            - WORK_PERMIT_CHECK_STARTED
+            - WORK_PERMIT_CHECK_FINISHED
+            - null
+        security_check_status:
+          type: string
+          enum:
+            - SECURITY_CHECK_STARTED
+            - SECURITY_CHECK_FINISHED
+            - null
+
+    EmployeeResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        username:
+          type: string
+        name:
+          type: string
+        application_state:
+          type: string
+          enum:
+            - ADDED
+            - IN_CHECK
+            - APPROVED
+            - ACTIVE
+        work_permit_status:
+          type: string
+          enum:
+            - WORK_PERMIT_CHECK_STARTED
+            - WORK_PERMIT_CHECK_FINISHED
+            - null
+        security_check_status:
+          type: string
+          enum:
+            - SECURITY_CHECK_STARTED
+            - SECURITY_CHECK_FINISHED
+            - null

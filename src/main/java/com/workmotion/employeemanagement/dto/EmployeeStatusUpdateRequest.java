@@ -16,7 +16,7 @@ public class EmployeeStatusUpdateRequest {
 	@NotBlank
 	private String id;
 	@NotNull
-	private Status state;
+	private Status status;
 	private WorkPermitStatus workPermitStatus;
 	private SecurityCheckStatus securityCheckStatus;
 }

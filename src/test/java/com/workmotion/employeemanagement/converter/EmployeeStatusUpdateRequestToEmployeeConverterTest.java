@@ -51,7 +51,7 @@ public class EmployeeStatusUpdateRequestToEmployeeConverterTest {
 
 		EmployeeStatusUpdateRequest request = new EmployeeStatusUpdateRequest();
 		request.setId(id);
-		request.setState(Status.IN_CHECK);
+		request.setStatus(Status.IN_CHECK);
 		request.setSecurityCheckStatus(SecurityCheckStatus.SECURITY_CHECK_FINISHED);
 		request.setWorkPermitStatus(WorkPermitStatus.WORK_PERMIT_CHECK_FINISHED);
 
@@ -78,7 +78,7 @@ public class EmployeeStatusUpdateRequestToEmployeeConverterTest {
 
 		EmployeeStatusUpdateRequest request = new EmployeeStatusUpdateRequest();
 		request.setId(id);
-		request.setState(Status.IN_CHECK);
+		request.setStatus(Status.IN_CHECK);
 		request.setSecurityCheckStatus(SecurityCheckStatus.SECURITY_CHECK_FINISHED);
 		request.setWorkPermitStatus(WorkPermitStatus.WORK_PERMIT_CHECK_FINISHED);
 
@@ -105,7 +105,7 @@ public class EmployeeStatusUpdateRequestToEmployeeConverterTest {
 
 		EmployeeStatusUpdateRequest request = new EmployeeStatusUpdateRequest();
 		request.setId(id);
-		request.setState(Status.IN_CHECK);
+		request.setStatus(Status.IN_CHECK);
 		request.setWorkPermitStatus(WorkPermitStatus.WORK_PERMIT_CHECK_FINISHED);
 
 		Mockito.doReturn(oldEmployee).when(mockEmployeeService).getById(id);
@@ -131,7 +131,7 @@ public class EmployeeStatusUpdateRequestToEmployeeConverterTest {
 
 		EmployeeStatusUpdateRequest request = new EmployeeStatusUpdateRequest();
 		request.setId(id);
-		request.setState(Status.IN_CHECK);
+		request.setStatus(Status.IN_CHECK);
 		request.setSecurityCheckStatus(SecurityCheckStatus.SECURITY_CHECK_FINISHED);
 
 		Mockito.doReturn(oldEmployee).when(mockEmployeeService).getById(id);
@@ -157,7 +157,7 @@ public class EmployeeStatusUpdateRequestToEmployeeConverterTest {
 		
 		EmployeeStatusUpdateRequest request = new EmployeeStatusUpdateRequest();
 		request.setId(id);
-		request.setState(Status.APPROVED);
+		request.setStatus(Status.APPROVED);
 		
 		Mockito.doReturn(oldEmployee).when(mockEmployeeService).getById(id);
 		

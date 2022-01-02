@@ -50,7 +50,7 @@ public class EmployeeApi {
 	}
 
 	@PostMapping
-	public ResponseEntity<Void> createEmployee(@RequestBody NewEmployeeRequest newEmployeeRequest) {
+	public ResponseEntity<Void> createEmployee(@Valid @RequestBody NewEmployeeRequest newEmployeeRequest) {
 		String id = employeeService.createEmployee(newEmployeeRequest.getName(), newEmployeeRequest.getUsername());
 		return ResponseEntity.created(URI.create(String.format("/employee/%s", id))).build();
 	}
